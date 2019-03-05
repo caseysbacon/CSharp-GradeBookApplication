@@ -17,17 +17,17 @@ namespace GradeBook.GradeBooks
             if(Students.Count < 5)
                 throw new InvalidOperationException("Ranked gradeing requires 5 or more students");
 
-            int gradeStep = (int)Math.Ceiling(Students.Count * .2);
+            int gradeStep = (int)Math.Ceiling(Students.Count * 0.2);
 
             List<Double> orderedList = Students.OrderByDescending(g => g.AverageGrade).Select(g => g.AverageGrade).ToList();
 
-            if (orderedList[gradeStep - 1] < averageGrade)
+            if (orderedList[gradeStep - 1] <= averageGrade)
                 return 'A';
-            else if (orderedList[(gradeStep * 2) - 1] < averageGrade)
+            else if (orderedList[(gradeStep * 2) - 1] <= averageGrade)
                 return 'B';
-            else if (orderedList[(gradeStep * 3) - 1] < averageGrade)
+            else if (orderedList[(gradeStep * 3) - 1] <= averageGrade)
                 return 'C';
-            else if (orderedList[(gradeStep * 4) - 1] < averageGrade)
+            else if (orderedList[(gradeStep * 4) - 1] <= averageGrade)
                 return 'D';
 
 
