@@ -17,7 +17,7 @@ namespace GradeBook.GradeBooks
             if(Students.Count < 5)
                 throw new InvalidOperationException("Ranked gradeing requires 5 or more students");
 
-            int gradeStep = (int)Math.Ceiling(Students.Count * .02);
+            int gradeStep = (int)Math.Ceiling(Students.Count * .2);
 
             List<Double> orderedList = Students.OrderByDescending(g => g.AverageGrade).Select(g => g.AverageGrade).ToList();
 
